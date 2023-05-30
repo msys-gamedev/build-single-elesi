@@ -40,7 +40,6 @@
                     console.log('[IOS] Cannot reach native code');
                 }
             } else if (isAndroid()) {
-                alert('Exit!!');
                 UnityInAppBrowser.sendMessageFromJS(message);
             }
         }
@@ -58,9 +57,9 @@
                     }
                 } else if (isAndroid()) {
                     try {
-                        sendMessageToUnity("Exit=" + val);
-                        window.close();
                         alert('[EXIT][ANDROID] Exiting with code: ' + val);
+                        unityInstance.SendMessage("GameViewer", "OnMessagefromJS", val);
+                        sendMessageToUnity("Exit=" + val);
                     } catch (err) {
                         console.log('[EXIT][ANDROID] Cannot exit: ' + err.message);
                     }
