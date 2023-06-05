@@ -170,6 +170,8 @@
             }
 
             function handleVisibilityChange(hiddenState, reason) {
+               var audio = document.getElementById("myAudio");
+                audio.muted = false;
                 if (hiddenState) {
                     if (isPageVisible) {
                         //console.log('visibility: hidden', reason);
@@ -182,22 +184,6 @@
                     unityInstance.SendMessage("[Bridge]", "TogglePause", "UNPAUSED");
                 }
             }
-          
-          
-          var audio = document.getElementById("myAudio");
-
-          // Listen for the visibilitychange event
-          document.addEventListener("visibilitychange", handleVisibilityAudio);
-          // Function to handle visibility change
-          function handleVisibilityAudio() {
-            if (document.hidden) {
-              // Window is minimized, mute the audio
-              audio.muted = true;
-            } else {
-              // Window is restored, unmute the audio
-              audio.muted = false;
-            }
-          }
 
             if (typeof document.addEventListener === "undefined" || typeof document[hidden] === "undefined") {
                 console.log("Browser doesn't support the Page visibility API.");
