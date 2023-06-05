@@ -173,11 +173,17 @@
                 if (hiddenState) {
                     if (isPageVisible) {
                         //console.log('visibility: hidden', reason);
+                      var audio = document.getElementById("myAudio");
+                        // Mute the audio
+                        audio.muted = false; 
                         isPageVisible = false;
                         unityInstance.SendMessage("[Bridge]", "TogglePause", "PAUSED");
                     }
                 } else {
                     //console.log('visibility: restored', reason);
+                    var audio = document.getElementById("myAudio");
+                   // Mute the audio
+                    audio.muted = true; 
                     isPageVisible = true;
                     unityInstance.SendMessage("[Bridge]", "TogglePause", "UNPAUSED");
                 }
