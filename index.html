@@ -175,7 +175,7 @@
                         //console.log('visibility: hidden', reason);
                       var audio = document.getElementById("myAudio");
                         // Mute the audio
-                        audio.muted = false; 
+                        audio.muted = true; 
                         isPageVisible = false;
                         unityInstance.SendMessage("[Bridge]", "TogglePause", "PAUSED");
                     }
@@ -183,7 +183,7 @@
                     //console.log('visibility: restored', reason);
                     var audio = document.getElementById("myAudio");
                    // Mute the audio
-                    audio.muted = true; 
+                    audio.muted = false; 
                     isPageVisible = true;
                     unityInstance.SendMessage("[Bridge]", "TogglePause", "UNPAUSED");
                 }
