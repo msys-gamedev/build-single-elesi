@@ -170,8 +170,6 @@
             }
 
             function handleVisibilityChange(hiddenState, reason) {
-               var audio = document.getElementById("myAudio");
-                audio.muted = false;
                 if (hiddenState) {
                     if (isPageVisible) {
                         //console.log('visibility: hidden', reason);
